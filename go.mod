@@ -1,4 +1,4 @@
-module github.com/vinhpham2106/aoc25golang/utils
+module github.com/VinhPham2106/AoC25Golang
 
 go 1.24
 

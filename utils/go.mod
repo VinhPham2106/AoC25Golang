@@ -1,7 +1,5 @@
-module aoc25golang/utils
+module github.com/VinhPham2106/AoC25Golang/utils
 
-go 1.24.3
-
-replace aoc25golang/utils => ../utils
+go 1.24
 
 require github.com/joho/godotenv v1.5.1

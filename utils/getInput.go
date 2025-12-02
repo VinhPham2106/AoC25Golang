@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"github.com/joho/godotenv"
 	"os"
+
+	"github.com/joho/godotenv"
 )
 
 var urlTemplate = "https://adventofcode.com/2025/day/%d/input"
@@ -16,9 +17,8 @@ func GetInput(day int) (input string, err error) {
 
 	// If not found, try utils/.env to remain tolerant of different run locations.
 	if os.Getenv("SESSION") == "" {
-		_ = godotenv.Load("utils/.env")
+		_ = godotenv.Load("../utils/.env")
 	}
-
 	session := os.Getenv("SESSION")
 
 	client := &http.Client{}
@@ -27,7 +27,7 @@ func GetInput(day int) (input string, err error) {
 		Name:  "session",
 		Value: session,
 	}
-    
+
 	req, err := http.NewRequest("GET", fmt.Sprintf(urlTemplate, day), nil)
 	if err != nil {
 		return "", fmt.Errorf("error creating HTTP request: %v", err)
